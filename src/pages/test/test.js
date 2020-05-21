@@ -12,8 +12,16 @@ window.onload = function() {
   }
 }
 
-function main() {
-    
+$(document).on('click', 'video', function(){
+    if (this.paused) {
+        this.play();
+    } else {
+        this.pause();
+    }
+});
+
+
+function main() {    
     console.log(data)
     for(var e in data) {
         let temp = data[e]
@@ -22,8 +30,8 @@ function main() {
         let trim = `#t=${startT},${endT}` //form #t=10,20
         console.log(`${video}${trim}`)
         let res = `
-        <h2>${temp["exercise"]}</h2>
-        <video controls width="100%">
+        <h2>${temp["exercise"]} - ${(endT-startT)} seconds</h2>
+        <video width="100%" id="${temp["exercise"]}">
             <source src="${video}${trim}" type="video/mp4">
         </video>
         <p>
@@ -32,8 +40,7 @@ function main() {
         </p>
         `
         $("#list").append(res)
-    }
-  
+    }  
 }
 
 function test() {
