@@ -9,7 +9,9 @@
             "min": 1,
             "sec": 17
         },
-        "about": "a simple exercise to warm up and exercise lower abdominals"
+        "about": "a simple exercise to warm up and exercise lower abdominals",
+        "reptitions": "10 reps with 2 sets",
+        "note": "Try not to overstretch as it is only warming up. Try to get a good feeling for your body and your mind"
 
     },
     "1": {
@@ -22,7 +24,9 @@
             "min": 2,
             "sec": 22
         },
-        "about": "a simple strech ..."
+        "about": "a simple strech ...",
+        "reptitions": "x reps with x sets",
+        "note": "note from trainer"
 
     },
     "2": {
@@ -35,7 +39,9 @@
             "min": 2,
             "sec": 54
         },
-        "about": "Warmup ..."
+        "about": "Warmup ...",
+        "reptitions": "x reps with x sets",
+        "note": "..."
 
     }
 }]

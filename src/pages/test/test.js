@@ -39,7 +39,11 @@ function main() {
         <h2>${temp["exercise"]} - ${(endT-startT)} seconds</h2>        
         <p>
         <b>About:</b>
-        ${temp["about"]}
+        ${temp["about"]} <br>
+        <b>Reptitions:</b>
+        ${temp["reptitions"]} <br>
+        <b>Note:</b>
+        ${temp["note"]} <br>
         </p>
         </div>
         </div>
