@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import './index.css';
 import App from './App';
+import Tui from './pages/trainerUI/index'
 import Trn from './pages/trainings/trainings';
 import Ts from './pages/transcribed/index';
 import Test from './pages/test/test'
@@ -35,6 +36,8 @@ ReactDOM.render(
         <Route path="/test" component={Test} />
         <Route path="/trainings" component={Trn} />
         <Route path="/ts" component={Ts} />
+        <Route path="/trainer" component={Tui} />
+
 
 
 
