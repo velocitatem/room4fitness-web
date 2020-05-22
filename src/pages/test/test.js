@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery'; 
 import video from './demo/video.mp4'
 import desc from './demo/desc.json'
+import Nav from '../../components/nav'
 var data = desc[0]
 window.onload = function() {
   if (window.jQuery) {  
@@ -20,6 +21,7 @@ $(document).on('click', 'video', function(){
 });
 function main() {    
     console.log(data)
+
     for(var e in data) {
         let temp = data[e]
         let startT = (temp["start"]["min"] * 60) + (temp["start"]["sec"])
@@ -27,25 +29,31 @@ function main() {
         let trim = `#t=${startT},${endT}` //form #t=10,20
         console.log(`${video}${trim}`)
         let res = `
-        <div id='exercise#${e}'>
-        <h2>${temp["exercise"]} - ${(endT-startT)} seconds</h2>
-        <video width="70%" id="${temp["exercise"]}">
+        <div id='exercise#${e}' class="row">
+        <div class="col-sm-7">
+        <video width="100%" id="${temp["exercise"]}">
             <source src="${video}${trim}" type="video/mp4">
         </video>
+        </div>
+        <div class="col-sm-5">
+        <h2>${temp["exercise"]} - ${(endT-startT)} seconds</h2>        
         <p>
         <b>About:</b>
         ${temp["about"]}
         </p>
         </div>
+        </div>
         `
         $("#list").append(res)
     }  
+    
 }
 function test() {
-  return (
+  return (    
     <div className="App">
-      <div class="wr">
-          <h1>list algorithm</h1>
+      <Nav></Nav>
+      <div class="">
+          <h1>Exercise transcript</h1>
           <hr></hr>
           <div id="list">
 

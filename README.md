@@ -2,10 +2,6 @@
 
 ![git workflow](./workflow.PNG)
 
-
-
-
-
 ## React Crash Course & how to use
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

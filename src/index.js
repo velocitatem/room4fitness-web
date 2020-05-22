@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import './index.css';
 import App from './App';
 import Test from './pages/test/test'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Test />
+    <Router>
+    <div>
+      <aside>
+        <Link to={`/`}></Link>
+        <Link to={`/select`}></Link>
+        <Link to={`/browse`}></Link>
+
+      </aside>
+      <main id="mid">
+      
+        <Route exact path="/" component={App} />
+        <Route path="/test" component={Test} />
+
+      </main>
+    </div>
+  </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
