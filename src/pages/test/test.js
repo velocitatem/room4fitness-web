@@ -27,6 +27,7 @@ function main() {
         let trim = `#t=${startT},${endT}` //form #t=10,20
         console.log(`${video}${trim}`)
         let res = `
+        <div id='exercise#${e}'>
         <h2>${temp["exercise"]} - ${(endT-startT)} seconds</h2>
         <video width="70%" id="${temp["exercise"]}">
             <source src="${video}${trim}" type="video/mp4">
@@ -35,6 +36,7 @@ function main() {
         <b>About:</b>
         ${temp["about"]}
         </p>
+        </div>
         `
         $("#list").append(res)
     }  
