@@ -28,7 +28,7 @@ function main() {
         console.log(`${video}${trim}`)
         let res = `
         <h2>${temp["exercise"]} - ${(endT-startT)} seconds</h2>
-        <video width="100%" id="${temp["exercise"]}">
+        <video width="70%" id="${temp["exercise"]}">
             <source src="${video}${trim}" type="video/mp4">
         </video>
         <p>
