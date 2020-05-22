@@ -11,7 +11,6 @@ window.onload = function() {
       alert("Jquery Doesn't Work");
   }
 }
-
 $(document).on('click', 'video', function(){
     if (this.paused) {
         this.play();
@@ -19,8 +18,6 @@ $(document).on('click', 'video', function(){
         this.pause();
     }
 });
-
-
 function main() {    
     console.log(data)
     for(var e in data) {
@@ -42,7 +39,6 @@ function main() {
         $("#list").append(res)
     }  
 }
-
 function test() {
   return (
     <div className="App">
@@ -56,5 +52,4 @@ function test() {
     </div>
   );
 }
-
 export default test;
