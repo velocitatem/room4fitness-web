@@ -15,3 +15,23 @@ code {
 #mid {
   background-color: white;
 }
+#cover {
+  height: 90vh;
+  background-image: url("./title.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#homeIMG {
+  width: 100%;
+}
+
+#homeContainer {
+
+}
+#Vcenter {
+  padding-top: 50%;
+
+}
+#essQ {
+  text-align: center;
+}
