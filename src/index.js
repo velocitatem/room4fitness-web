@@ -3,8 +3,21 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import './index.css';
 import App from './App';
+import Trn from './pages/trainings/trainings';
+import Ts from './pages/transcribed/index';
 import Test from './pages/test/test'
 import * as serviceWorker from './serviceWorker';
+
+function soon() {
+  return(
+    <center>
+      <h2>
+        This part is still in development
+      </h2>
+    </center>
+
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +33,10 @@ ReactDOM.render(
       
         <Route exact path="/" component={App} />
         <Route path="/test" component={Test} />
+        <Route path="/trainings" component={Trn} />
+        <Route path="/ts" component={Ts} />
+
+
 
       </main>
     </div>

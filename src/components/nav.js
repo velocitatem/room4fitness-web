@@ -16,15 +16,23 @@ function main() {
 
 function App() {
   return (
-
-        <nav class="navbar sticky-top navbar-dark bg-primary">
-            <a class="navbar-brand" href="/"><b>room4fitness</b></a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/test">test</a>
-                </li>
-            </ul>
-        </nav>
+<div className="App">
+      <header class="App-header">
+      <nav class="navbar navbar-expand-sm " id="navbarM">
+      <div class="" id="navbarTogglerDemo01">      
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <a class="navbar-brand" href="/">Home</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/test" id="navI"><b>Demo</b></a>            
+          </li>              
+          <li class="nav-item">
+            <a class="nav-link" href="/trainings" id="navI">Trainings</a>            
+          </li>              
+        </ul>
+      </div>        
+      </nav>
+      </header>
+    </div>
   );
 }
 

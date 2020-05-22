@@ -1,17 +1,22 @@
 import React from 'react';
 import $ from 'jquery'; 
-import video from './demo/video.mp4'
-import desc from './demo/desc.json'
 import Nav from '../../components/nav'
-var data = desc[0]
-window.onload = function() {
-  if (window.jQuery) {  
-    main()
-  } else {
-      // jQuery is not loaded
-      alert("Something went wrong - Jquery Doesn't Work !check import!");
-  }
-}
+
+var video = "https://fitnessscribe.s3.eu-central-1.amazonaws.com/demos/demo1/video.mp4"
+var desc = ""
+fetch("https://fitnessscribe.s3.eu-central-1.amazonaws.com/demos/demo1/video.mp4.json") 
+.then((response) => {
+  return response.json();
+})
+.then((data) => {
+  console.log(data[0])
+  desc = data
+  main(data[0])
+})
+.catch(err => {
+  console.log(err);
+})
+//var video = link
 $(document).on('click', 'video', function(){
     if (this.paused) {
         this.play();
@@ -19,7 +24,7 @@ $(document).on('click', 'video', function(){
         this.pause();
     }
 });
-function main() {    
+function main(data) {    
     console.log(data)
 
     for(var e in data) {
@@ -36,8 +41,9 @@ function main() {
         </video>
         </div>
         <div class="col-sm-5">
-        <h2>${temp["exercise"]} - ${(endT-startT)} seconds</h2>        
+        <h2>${temp["exercise"]}</h2>        
         <p>
+        <b>Duration: </b>${(endT-startT)} seconds <br>
         <b>About:</b>
         ${temp["about"]} <br>
         <b>Reptitions:</b>
@@ -48,18 +54,18 @@ function main() {
         </div>
         </div>
         `
-        $("#list").append(res)
+        $("#listDEMO").append(res)
     }  
     
 }
 function test() {
   return (    
-    <div className="App">
+    <div class="container">
       <Nav></Nav>
       <div class="">
-          <h1>Exercise transcript</h1>
+          <h1>Exercise transcript DEMO</h1>
           <hr></hr>
-          <div id="list">
+          <div id="listDEMO">
 
           </div>
       </div>

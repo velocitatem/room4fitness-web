@@ -18,7 +18,7 @@ function main() {
 
 function App() {
   return (
-    <div className="App">
+    <div class="container">
       <Nav></Nav>
       <div class="">
         <div class="container">
