@@ -8,7 +8,7 @@ window.onload = function() {
     main()
   } else {
       // jQuery is not loaded
-      alert("Jquery Doesn't Work");
+      alert("Something went wrong - Jquery Doesn't Work !check import!");
   }
 }
 $(document).on('click', 'video', function(){
