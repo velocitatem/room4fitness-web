@@ -25,12 +25,16 @@ code {
   width: 100%;
 }
 
-#homeContainer {
-
+#listOI {
+  width: 100%;
+  height: auto;
 }
 #Vcenter {
   padding-top: 50%;
 
+}
+#subm {
+  background-color: darkgray;
 }
 #essQ {
   text-align: center;
