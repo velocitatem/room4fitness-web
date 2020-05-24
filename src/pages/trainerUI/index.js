@@ -52,6 +52,8 @@ function addMeta() {
 }
 var gen = ``
 function GenerateMeta() {
+	console.log(exercise)
+	try {
   var tbl = {exercise, start, end, about, reps, note}
   console.table({exercise, start, end, about, reps, note})
   let index = 0
@@ -111,7 +113,12 @@ function GenerateMeta() {
   }]
   </pre>
   `
+  guide()
   $("#listOI").html(res)
+}
+catch {
+	alert("please enter valid data")
+}
 
 }
 function upload() {
@@ -156,6 +163,7 @@ function nameE() {
 }
 var domain = "https://fitnessscribe.s3.eu-central-1.amazonaws.com";
 var transcript = `${domain}/demos/transcript.json`
+var generatedTrans = ``
 function deploy() {
   fetch(transcript)    
   .then((response) => {
@@ -185,7 +193,7 @@ function deploy() {
 
       let metaPlus= `
       "${transLength}": {
-        "path": "/demos/${$("#ExName").val()}/video.mp4",
+        "path": "${$("#ExName").val()}",
         "name": "${$("#ExName").val()}",
         "author": "${$("#username").val()}"
     }
@@ -196,7 +204,7 @@ function deploy() {
       {"content": { "0": [{${trans}}]}}
       `
       console.log(result)
-
+	  generatedTrans += result
       var settings = {
         "url": window.location.origin+"/deploy",
         "method": "POST",
@@ -216,6 +224,15 @@ function deploy() {
       console.log(err);
   })
 }
+function guide() {
+	alert("To upload the script to a serve, create a file called '[THE NAME OF YOUR WORKOUT].json' and past in the data that has been generated. after saving it, upload it down bellow")
+	$("#downF").html("To upload the script to a serve, create a file called '[THE NAME OF YOUR WORKOUT].json' and past in the data that has been generated. after saving it, upload it down bellow")
+}
+  
+/**
+ * I know its ugly and not organized but honestly, its a lot
+ * 
+ */
 function Tui() {
   return (
     <div class="container">
@@ -223,13 +240,15 @@ function Tui() {
       <div class="">
         <div class="">
             <div class="row">
-              <a href="#gen">
+              <div class="col-lg-12">
+			  <a class="btn btn-primary btn-lg active" href="#gen">
                 Generate Data
+              </a>          
+			      
+              <a class="btn btn-primary btn-lg active" href="#upload">
+                Upload Files
               </a>
-              |
-              <a href="#upload">
-                upload
-              </a>
+			  </div>
             </div>
             <div class="row" id="gen">
                 <div class="col-sm-12">
@@ -290,30 +309,79 @@ function Tui() {
 
                   <div width="100%" class="form-control" id="listOI">
                   </div>
+				  <p id="downF">
+
+				  </p>
+
                 </div>
 
             </div>
             <div class="row" id="upload">
               <div class="col-lg-12">
-                <h1 id="essQ">Upload Trainer Video To Database</h1>
-                  <input type="text" name="name" id="ExName" class="form-control" placeholder="Workout name"></input>
-                  <input type="button" onClick={nameE} class="form-control" value="Add Exercise Name"/>
+                <h1 id="essQ">Upload Trainer Video To Database</h1> 
+
+                <div class="input-group mb-3">
+
+                              <input type="text" name="name" id="ExName" class="form-control" placeholder="Exercise Name"></input>                                
+						<div class="input-group-append">
+						<input type="button" onClick={nameE} class="btn btn-secondary btn-sm" value="Add Exercise Name"/>
+                        </div>
+
+				</div>
                 <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
-                <b>Upload Video Script</b>
-                  <input type="file" class="form-control" name="myFile" />
-                  <input type="submit" class="form-control" value="Upload a file"/>
+                <h3>Upload Video Script</h3>
+
+
+
+
+				<div class="input-group mb-3">
+
+
+					<div class="custom-file">
+
+						<input type="file" class="custom-file-input"  name="myFile" />
+						<label class="custom-file-label" for="customFile">Choose file</label>
+
+					</div>
+					<div class="input-group-append">
+					<input type="submit"  class="btn btn-secondary btn-sm"value="Upload Video Script"/>
+					</div>
+					</div>    
                 </form>
 
                 <form action="/uploadvideo" enctype="multipart/form-data" method="POST"> 
-                  <b>Upload Video</b>
-                  <input type="file" class="form-control" name="myVideo" />
-                  <input type="submit" class="form-control" value="Upload a file"/>
+                  <h3>Upload Video</h3>
+
+				  <div class="input-group mb-3">
+
+
+                  <div class="custom-file">
+
+                      <input type="file" class="custom-file-input" name="myVideo" ></input>
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+
+                </div>
+				<div class="input-group-append">
+				<input type="submit" class="btn btn-secondary btn-sm" value="Upload Exercise Video"></input>
+  				</div>
+                </div>
+                  
                 </form>
-                  
+                  <br></br>
                 <form action="/deploy" enctype="multipart/form-data" method="POST"> 
-                  <input type="text" name="userName" id="username"></input>
+
+
+                <div class="input-group mb-3">
+
+				<input type="text" name="userName" class="form-control" id="username"  placeholder="Name of the trainer"></input>
+                               
+						<div class="input-group-append">
+						<input type="button" class="btn btn-secondary btn-sm"  value="Deploy" onClick={deploy}></input>
+                        </div>
+
+				</div>
+
                   
-                  <input type="button" value="Deploy" onClick={deploy}></input>
                 </form>
 
               </div>
