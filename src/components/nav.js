@@ -14,6 +14,13 @@ function main() {
   
 }
 
+/**
+ * 
+ *           <li class="nav-item">
+            <a class="nav-link" href="/trainer" id="navI">Trainer UI</a>            
+          </li>   
+ */
+
 function App() {
   return (
 <div className="App">
@@ -25,9 +32,7 @@ function App() {
           <li class="nav-item">
             <a class="nav-link" href="/trainings" id="navI">Classes</a>            
           </li>            
-          <li class="nav-item">
-            <a class="nav-link" href="/trainer" id="navI">Trainer UI</a>            
-          </li>      
+   
         </ul>
       </div>        
       </nav>
