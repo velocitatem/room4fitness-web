@@ -1,6 +1,6 @@
 ## workflow
 
-![git workflow](./workflow.PNG)
+
 
 ## React Crash Course & how to use
 
